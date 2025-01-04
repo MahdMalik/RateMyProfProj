@@ -1,0 +1,124 @@
+{
+    "reviews": [
+      {
+        "professor": "Dr. Sarah Chen",
+        "subject": "Organic Chemistry",
+        "stars": 5,
+        "review": "Dr. Chen is incredibly passionate about organic chemistry and makes complex concepts easy to understand. Her office hours are super helpful and she genuinely cares about student success."
+      },
+      {
+        "professor": "Dr. Michael Rodriguez",
+        "subject": "World History",
+        "stars": 2,
+        "review": "Lectures are extremely disorganized and the grading seems arbitrary. Often goes off on tangents and doesn't cover the material in the syllabus."
+      },
+      {
+        "professor": "Dr. Emily Parker",
+        "subject": "Psychology",
+        "stars": 4,
+        "review": "Great lecturer who incorporates real-world examples. Only downside is that the workload can be heavy at times."
+      },
+      {
+        "professor": "Dr. James Wilson",
+        "subject": "Calculus II",
+        "stars": 3,
+        "review": "Decent professor but moves through material very quickly. You'll need to do a lot of self-study to keep up with the pace."
+      },
+      {
+        "professor": "Dr. Lisa Thompson",
+        "subject": "English Literature",
+        "stars": 5,
+        "review": "Best professor I've had! Her analysis of texts is incredible and she encourages great class discussions. Very fair grader too."
+      },
+      {
+        "professor": "Dr. Robert Kim",
+        "subject": "Physics",
+        "stars": 1,
+        "review": "Seems knowledgeable but terrible at explaining concepts. Rarely responds to emails and is often dismissive of questions in class."
+      },
+      {
+        "professor": "Dr. Amanda Foster",
+        "subject": "Sociology",
+        "stars": 4,
+        "review": "Really engaging lectures and interesting assignments. Sometimes unclear about expectations for papers but otherwise excellent."
+      },
+      {
+        "professor": "Dr. David Martinez",
+        "subject": "Computer Science",
+        "stars": 5,
+        "review": "Fantastic instructor who brings real industry experience to the classroom. Projects are challenging but incredibly rewarding."
+      },
+      {
+        "professor": "Dr. Jennifer Lee",
+        "subject": "Biology",
+        "stars": 3,
+        "review": "Lectures are okay but rely too heavily on slides. Lab sessions are well-organized though and she's helpful during them."
+      },
+      {
+        "professor": "Dr. Thomas Wright",
+        "subject": "Economics",
+        "stars": 2,
+        "review": "Very boring lectures and tends to read straight from the textbook. Tests are much harder than the homework assignments."
+      },
+      {
+        "professor": "Dr. Rachel Green",
+        "subject": "Environmental Science",
+        "stars": 5,
+        "review": "Amazing professor who organizes great field trips and brings in guest speakers. Makes the subject matter really relevant to current issues."
+      },
+      {
+        "professor": "Dr. Kevin Chang",
+        "subject": "Statistics",
+        "stars": 4,
+        "review": "Clear explanations and provides lots of practice problems. Sometimes gets frustrated when students ask basic questions."
+      },
+      {
+        "professor": "Dr. Maria Garcia",
+        "subject": "Spanish Literature",
+        "stars": 5,
+        "review": "Incredibly knowledgeable and passionate. Creates a welcoming environment for all language levels and gives great feedback."
+      },
+      {
+        "professor": "Dr. William Turner",
+        "subject": "Philosophy",
+        "stars": 3,
+        "review": "Interesting perspectives but can be a bit condescending. Participation is a huge part of the grade which can be intimidating."
+      },
+      {
+        "professor": "Dr. Patricia Brown",
+        "subject": "Art History",
+        "stars": 4,
+        "review": "Very knowledgeable about the subject and shows fascinating examples. Tests are tough but she provides good study guides."
+      },
+      {
+        "professor": "Dr. John Anderson",
+        "subject": "Political Science",
+        "stars": 2,
+        "review": "Clearly biased in his teaching and doesn't encourage different viewpoints in discussions. Assignments are poorly explained."
+      },
+      {
+        "professor": "Dr. Michelle Taylor",
+        "subject": "Music Theory",
+        "stars": 5,
+        "review": "Exceptional at breaking down complex concepts. Always available for extra help and provides great practical exercises."
+      },
+      {
+        "professor": "Dr. Richard Harris",
+        "subject": "Marketing",
+        "stars": 3,
+        "review": "Good real-world examples but lectures can be dry. Group projects are well-structured and helpful for learning."
+      },
+      {
+        "professor": "Dr. Susan White",
+        "subject": "Anthropology",
+        "stars": 4,
+        "review": "Fascinating lectures with lots of field experience to share. Heavy reading load but material is interesting."
+      },
+      {
+        "professor": "Dr. Daniel Peters",
+        "subject": "Chemistry",
+        "stars": 1,
+        "review": "Extremely difficult to understand and unhelpful during office hours. Tests cover material never discussed in class."
+      }
+    ]
+  }
