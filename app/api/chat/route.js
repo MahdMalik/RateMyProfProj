@@ -95,38 +95,53 @@ The goal is to help students make informed decisions about their education while
 
 export async function POST(req)
 {
-    const data = await req.json()
-    const pc = new Pinecone({apiKey: process.env.PINECONE_PRIVATE_KEY})
-    const index = pc.index('rag').namespace('ns1')
-    const text = data[data.length - 1].content //this is the last message sent
-    
-    const genAI = new GoogleGenerativeAI(process.env.GEMINI_PRIVATE_KEY)
-    const model = genAI.getGenerativeModel({model: "text-embedding-004"})
-    const embedding = await model.embedContent(text)
-
-    const results = await index.query({
-        topK: 3,
-        includeMetadata: true,
-        vector: embedding.data[0].embedding
-    })
-
-    let resultString = '\n\nReturned results from vector db (done automatically):'
-    results.matches.forEach((match) =>
+    try
     {
-        resultString+=`
+        const data = await req.json()
+        const pc = new Pinecone({apiKey: process.env.PINECONE_PRIVATE_KEY})
+        const index = pc.index('rag').namespace('ns1')
+        const text = data[data.length - 1].content //this is the last message sent
         
-        Professor: ${match.id}
-        Review: ${match.metadata.review}
-        Subject: ${match.metadata.subject}
-        Stars: ${match.metadata.stars}
-        \n\n
-        `
-    })
-
-    const lastMessage = data[data.length - 1]
-    const lastMessageContent = lastMessage.content + resultString
-    const lastDataWithoutLastMessage = data.slice(0, data.length - 1)
-    const chatModel = genAI.getGenerativeModel({model: "gemini-1.5-flash", systemInstruction: systemPrompt})
-    const theChat = chatModel.startChat({history: lastDataWithoutLastMessage})
-    const sendMessage = theChat.sendMessage(lastMessageContent)
+        const genAI = new GoogleGenerativeAI(process.env.GEMINI_PRIVATE_KEY)
+        const model = genAI.getGenerativeModel({model: "text-embedding-004"})
+        const embedding = await model.embedContent(text)
+    
+        const results = await index.query({
+            topK: 3,
+            includeMetadata: true,
+            vector: embedding.data[0].embedding
+        })
+    
+        let resultString = '\n\nReturned results from vector db (done automatically):'
+        results.matches.forEach((match) =>
+        {
+            resultString+=`
+            
+            Professor: ${match.id}
+            Review: ${match.metadata.review}
+            Subject: ${match.metadata.subject}
+            Stars: ${match.metadata.stars}
+            \n\n
+            `
+        })
+    
+        const lastMessage = data[data.length - 1]
+        const lastMessageContent = lastMessage.content + resultString
+        const lastDataWithoutLastMessage = data.slice(0, data.length - 1)
+        try
+        {
+            const chatModel = genAI.getGenerativeModel({model: "gemini-1.5-flash", systemInstruction: systemPrompt})
+            const theChat = chatModel.startChat({history: lastDataWithoutLastMessage})
+            const sendMessage = theChat.sendMessage(lastMessageContent)
+            return new NextResponse(sendMessage)
+        }
+        catch(e)
+        {
+            return new NextResponse(JSON.stringify("Error! Trouble generating response, error is: " + e), {status: 500});
+        }    
+    }
+    catch(e)
+    {
+        return new NextResponse(JSON.stringify("Error! Unable to even start, error is: " + e), {status: 500});
+    }
   }
