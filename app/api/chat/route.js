@@ -28,7 +28,7 @@ For each query, you should:
    - Office hours availability
    - Research interests
 
-3. Present recommendations in this structured format:
+3. Present recommendations in this structured format. Note that to separate lines from each other on different lines, you MUST use '\\n' for this!:
 
 🏆 Top 3 Professor Recommendations
 

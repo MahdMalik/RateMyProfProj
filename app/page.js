@@ -33,21 +33,30 @@ export default function Home()
       ])
     }
   return (
-    <Box width = "100vw" height = "100vh" display = "flex" flexDirection = "column" justifyContent = "center" alignItems = "center">
-      <Stack direction = "column" width = "500px" height = "700px" border = "1px solid black" p = {2} spacing = {3}>
+    <Box width = "100vw" height = "100vh" display = "flex" flexDirection = "column" justifyContent = "center" alignItems = "center" >
+      <Stack direction = "column" width = "80vw" height = "60vw" border = "1px solid black" p = {2} spacing = {3}>
         <Stack direction = "column" spacing = {2} flexGrow = {1} overflow = {'auto'} maxHeight = {'100%'}>
           {
             messages.map((message, index) => (
-              <Box key = {index} display = "flex" justifyContent = {message.role === "model" ? 'flex-start' : 'flex-end'}>
-                  <Box bgcolor = {message.role === 'model' ? "primary.main" : "secondary.main"} color = "white" border = {16} p = {3}>
-                    {message.parts[0].text}
+              <Box key = {index} display = "flex" justifyContent = {message.role === "model" ? 'flex-start' : 'flex-end'} >
+                  <Box bgcolor = {message.role === 'model' ? "primary.main" : "secondary.main"} color = "white" border = {16} p = {3} sx={{ borderRadius: 10 }}>
+                    <div>
+                      {message.parts[0].text.replace(/\\n/g, "\n").split('\n').map((paragraph, index) => (
+                        <p key = {index}>{paragraph}</p>
+                      ))}
+                    </div>
                   </Box>
               </Box>
             ))
           }
         </Stack>
         <Stack direction = "row" spacing = {2}>
-            <TextField label = "Message" fullWidth value = {message} onChange = {(e) => { setMessage(e.target.value) }}/>
+            <TextField label = "Message" fullWidth value = {message} onChange = {(e) => { setMessage(e.target.value) }} onKeyDown={(event) => {
+              if(event.key === "Enter")
+              {
+                sendMessage()
+              }
+            }}/>
             <Button variant = "contained" onClick = {sendMessage}>Send</Button>
         </Stack>
       </Stack>
