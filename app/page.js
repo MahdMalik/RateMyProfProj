@@ -52,12 +52,16 @@ export default function Home()
         </Stack>
         <Stack direction = "row" spacing = {2}>
             <TextField label = "Message" fullWidth value = {message} onChange = {(e) => { setMessage(e.target.value) }} onKeyDown={(event) => {
-              if(event.key === "Enter")
+              if(event.key === "Enter" && message.trim(' ').length != 0)
               {
                 sendMessage()
               }
             }}/>
-            <Button variant = "contained" onClick = {sendMessage}>Send</Button>
+            <Button variant = "contained" onClick = {() => 
+              {if(message.trim(' ').length != 0)
+              {
+                sendMessage()
+              }}}>Send</Button>
         </Stack>
       </Stack>
     </Box>
