@@ -18,20 +18,18 @@ export default function Home()
       setMessages((messages) => [
         ...messages,
         {role: "user", parts: [{text: message}]},
-        {role: "model", parts: [{text: ''}]}
       ])
       setMessage('')
       //go to backend to get the model's next message
-      const response = fetch("/api/chat", {
+      const response = await fetch("/api/chat", {
         method: "POST",
         headers: {'Content-Type': "application/json"},
         body: JSON.stringify([...messages, {role: "user", parts: [{text: message}]}])
       })
       const newMessage = await response.json()
-
       setMessages((messages) => [
-        ...messages.slice(0, messages.length - 1),
-        {role: "model", parts: [{text: newMessage}]}
+        ...messages,
+        {role: "model", parts: [{text: newMessage.message}]}
       ])
     }
   return (
@@ -40,7 +38,7 @@ export default function Home()
         <Stack direction = "column" spacing = {2} flexGrow = {1} overflow = {'auto'} maxHeight = {'100%'}>
           {
             messages.map((message, index) => (
-              <Box key = {index} display = "flex" justifyContent = {message.role === "assistant" ? 'flex-start' : 'flex-end'}>
+              <Box key = {index} display = "flex" justifyContent = {message.role === "model" ? 'flex-start' : 'flex-end'}>
                   <Box bgcolor = {message.role === 'model' ? "primary.main" : "secondary.main"} color = "white" border = {16} p = {3}>
                     {message.parts[0].text}
                   </Box>
