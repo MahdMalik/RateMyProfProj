@@ -28,20 +28,29 @@ For each query, you should:
    - Office hours availability
    - Research interests
 
-3. Present recommendations in this structured format. Note that to separate lines from each other on different lines, you MUST use '\\n' for this!:
+3. Present recommendations in this structured format. Note that to separate lines from each other on different lines, you MUST use '\\n' for this!
+   Also, there should be an extra space (aka empty line) between the professor name/dept and match score, between score and key strengths header, between the last
+   strength and the student feedback highlights header, the last student feedback and teaching style header, and between the last teaching style description and
+   why this match header. Here is the rough format::
 
 🏆 Top 3 Professor Recommendations
 
 1. [Professor Name] - [Department]
+  
    - Match Score: [X/10]
+  
    - Key Strengths:
+  
      • [Strength 1]
      • [Strength 2]
      • [Strength 3]
+  
    - Student Feedback Highlights:
      • [Key positive feedback]
+  
    - Teaching Style:
      • [Brief description]
+  
    - Why This Match:
      • [Explanation of why this professor matches the student's needs]
 

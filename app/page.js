@@ -42,7 +42,9 @@ export default function Home()
                   <Box bgcolor = {message.role === 'model' ? "primary.main" : "secondary.main"} color = "white" border = {16} p = {3} sx={{ borderRadius: 10 }}>
                     <div>
                       {message.parts[0].text.replace(/\\n/g, "\n").split('\n').map((paragraph, index) => (
-                        <p key = {index}>{paragraph}</p>
+                        <p key={index} style={{ margin: '0' }}>
+                        {paragraph === "" ? "\u00A0" : paragraph} {/* Non-breaking space for blank lines */}
+                      </p>
                       ))}
                     </div>
                   </Box>
