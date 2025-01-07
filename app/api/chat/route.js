@@ -31,7 +31,7 @@ For each query, you should:
 3. Present recommendations in this structured format. Note that to separate lines from each other on different lines, you MUST use '\\n' for this!
    Also, there should be an extra space (aka empty line) between the professor name/dept and match score, between score and key strengths header, between the last
    strength and the student feedback highlights header, the last student feedback and teaching style header, and between the last teaching style description and
-   why this match header. Here is the rough format::
+   why this match header. There should never be 2 blank lines in a row though. Here is the rough format:
 
 🏆 Top 3 Professor Recommendations
 
